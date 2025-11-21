@@ -1,10 +1,7 @@
-**Land Type Classification Using Sentinel-2 Satellite Images and Deep Neural Networks:**
+**Land Type Classification Using Sentinel-2 Satellite Images and Deep Neural Networks**
 
-Accurate land-use and land-cover (LULC) classification is a critical component of modern environmental monitoring and spatial planning. 
-With the growing availability of high-resolution Earth observation data, advanced machine learning techniques such as Deep Neural Networks (DNNs) 
-provide new opportunities to automate and enhance the precision of land-type classification. This project focuses on developing a 
-DNN model that classifies various land types—including agriculture, water, urban areas, deserts, roads, and vegetation
-—using multispectral imagery from the European Space Agency’s Sentinel-2 mission. 
-The report outlines the technical approach for dataset preparation, model design, training, and evaluation,
-as well as the expected outcomes for supporting sustainable resource management, urban planning, and climate research.
+Accurate land-use and land-cover (LULC) classification is a critical component of modern environmental monitoring and spatial planning. With the growing availability of high-resolution Earth observation data, advanced machine learning techniques such as Deep Neural Networks (DNNs) provide new opportunities to automate and enhance the precision of land-type classification. This project focuses on developing a DNN model that classifies various land types—including agriculture, water, urban areas, deserts, roads, and vegetation—using multispectral imagery from the European Space Agency’s Sentinel-2 mission. The report outlines the technical approach for dataset preparation, model design, training, and evaluation, as well as the expected outcomes for supporting sustainable resource management, urban planning, and climate research.
 
+**Introduction**
+
+Land-use classification from satellite imagery has long been an important task in remote sensing, supporting a wide range of applications from agriculture and forestry to environmental policy. Traditional classification techniques such as Maximum Likelihood or Support Vector Machines rely heavily on handcrafted features and often underperform in complex landscapes. Deep learning approaches, in contrast, automatically extract hierarchical spatial and spectral features from images, allowing them to achieve state-of-the-art performance in computer vision and remote sensing tasks. The Sentinel-2 mission, launched by the European Space Agency, provides free multispectral imagery with 13 spectral bands and spatial resolutions ranging from 10 m to 60 m. These images are particularly well suited for large-scale land-cover mapping. The integration of Sentinel-2 data with DNN architectures such as Convolutional Neural Networks (CNNs) or Vision Transformers (ViTs) offers the potential to classify land types more efficiently and accurately than traditional methods.
