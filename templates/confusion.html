@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2>Confusion Matrix</h2>
+{% if cm_img %}
+  <img src="data:image/png;base64,{{ cm_img }}" />
+{% endif %}
+{% if report %}
+  <h3>Classification Report</h3>
+  <pre>{{ report | tojson(indent=2) }}</pre>
+{% endif %}
+{% endblock %}
