@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2>Upload a GeoTIFF</h2>
+<form method="post" enctype="multipart/form-data">
+  <input type="file" name="tif_file" accept=".tif,.tiff" required>
+  <input type="submit" value="Analyze">
+</form>
+
+{% if result %}
+  <h3>Results</h3>
+  <div class="grid">
+    <div>
+      <h4>Classifier</h4>
+      {% if result.classifier %}
+        <p><strong>Prediction:</strong> {{ result.classifier.name }} (id: {{ result.classifier.id }})</p>
+        {% if result.classifier.probs %}
+          <h5>Probabilities</h5>
+          <ul>
+            {% for p in result.classifier.probs %}
+            <li>{{ p.class }}: {{ '%.3f'|format(p.prob) }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      {% else %}
+        <p>No classifier loaded.</p>
+      {% endif %}
+
+      <h4>KMeans</h4>
+      {% if result.kmeans_mapped_counts %}
+        <pre>{{ result.kmeans_mapped_counts }}</pre>
+      {% elif result.kmeans_cluster_counts %}
+        <pre>{{ result.kmeans_cluster_counts }}</pre>
+      {% else %}
+        <p>No kmeans results.</p>
+      {% endif %}
+    </div>
+
+    <div>
+      <h4>Previews</h4>
+      {% if result.rgb %}
+        <h5>RGB</h5><img src="data:image/png;base64,{{ result.rgb }}" />
+      {% endif %}
+      {% if result.ndvi %}
+        <h5>NDVI</h5><img src="data:image/png;base64,{{ result.ndvi }}" />
+      {% endif %}
+    </div>
+
+    <div>
+      <h4>Histograms</h4>
+      {% if result.hist %}
+        <img src="data:image/png;base64,{{ result.hist }}" />
+      {% endif %}
+    </div>
+
+    <div>
+      <h4>PCA / Spectral</h4>
+      {% if result.pca_by_classifier %}
+        <h5>PCA colored by classifier</h5>
+        <img src="data:image/png;base64,{{ result.pca_by_classifier }}" />
+      {% elif result.pca_by_kmeans %}
+        <h5>PCA colored by clusters</h5>
+        <img src="data:image/png;base64,{{ result.pca_by_kmeans }}" />
+      {% endif %}
+
+      {% if result.spectral_signatures %}
+        <h5>Spectral signatures (predicted classes)</h5>
+        <img src="data:image/png;base64,{{ result.spectral_signatures }}" />
+      {% endif %}
+    </div>
+  </div>
+{% endif %}
+{% endblock %}
