@@ -1,0 +1,4 @@
+py -3.13 -m venv .venv
+.\.venv\Scripts\Activate.ps1
+pip install C:\Users\admin\Downloads\rasterio-1.4.3-cp313-cp313-win_amd64.whl
+pip install Flask Werkzeug numpy scikit-learn joblib matplotlib seaborn tqdm xgboost tensorflow plotly
